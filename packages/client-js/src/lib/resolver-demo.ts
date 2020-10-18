@@ -157,7 +157,7 @@ export function createPatternResolver(pattern: string, resolver: Web3APIModuleRe
  * @param uri The URI to resolve
  * @param resolvers An array of resolvers, ordered in resolution order.
  */
-export async function resolveURI(uri: string, resolvers: Web3APIModuleResolver[]): Promise<Web3APIDefinition> {
+export async function resolveURI(uri: string, resolvers: Web3APIModuleResolver[]): Promise<Web3APIDefinition | undefined> {
     for (let resolver of resolvers) {
         const module: Web3APIDefinition | undefined = await resolver(uri);
         if (module !== undefined) {
