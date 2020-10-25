@@ -43,3 +43,18 @@ export type ASCModule = any//ResultObject & { exports: ASUtil & ASMarshalUtil };
 
 // TODO: hack
 export type ASCImports = any//Imports;
+
+/**
+ * Generic interface of a Web3API.
+ * All Web3API's whether they be WASM or JS must conform to this.
+ */
+export interface Web3API {
+  query(query: Query): Promise<QueryResult>;
+}
+
+/**
+ * Represents the definition of a Web3API and allows for an instance of it to be created.
+ */
+export interface Web3APIDefinition {
+  create: () => Promise<Web3API>;
+}
